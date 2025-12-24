@@ -13,7 +13,8 @@ CONF_SEARCH = 'search'
 
 
 class TianqiConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    CONNECTION_CLASS = config_entries.CONN_CLASS_CLOUD_POLL
+    # CONNECTION_CLASS was deprecated and removed in HA 2025.x
+    # CONNECTION_CLASS = config_entries.CONN_CLASS_CLOUD_POLL
 
     @staticmethod
     @callback
@@ -41,7 +42,7 @@ class TianqiConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if search:
             if areas := await client.search_areas(search):
                 areas = {
-                    'auto': '自动获取',
+                    'auto': '自動獲取',
                     **areas,
                 }
                 if area_id not in areas:
@@ -50,7 +51,7 @@ class TianqiConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     vol.Optional('area_id', default=area_id): vol.In(areas),
                 })
             else:
-                self.context['last_error'] = f'未找到与【{search}】相关的地点'
+                self.context['last_error'] = f'未找到與【{search}】相關的地點'
 
         elif area_id:
             await self.async_set_unique_id(area_id)
@@ -69,7 +70,7 @@ class TianqiConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 )
 
         if not self.context.get('last_error'):
-            self.context['last_error'] = '输入城市/区县名称后搜索，如果留空则根据HA配置中的位置自动获取'
+            self.context['last_error'] = '輸入城市/區縣名稱後搜索，如果留空則根據HA配置中的位置自動獲取'
 
         latest_domain = self.hass.data[DOMAIN].get('latest_domain')
         schema = {
@@ -107,7 +108,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             except Exception as exc:
                 self.context['last_error'] = f'{exc}'
         if not self.context.get('last_error'):
-            self.context['last_error'] = '如果想修改城市/区县，请重新添加集成'
+            self.context['last_error'] = '如果想修改城市/區縣，請重新添加集成'
         defaults = {
             **self.config_entry.data,
             **self.config_entry.options,
