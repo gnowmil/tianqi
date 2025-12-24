@@ -52,4 +52,5 @@ wget -O - https://hacs.vip/get | DOMAIN=tianqi bash -
 - 使用教程: https://mp.weixin.qq.com/s/_4aFbsb40qPgII-kYB3phA
 - [安装彩云卡片(HACS)](https://my.home-assistant.io/redirect/hacs_repository/?owner=fineemb&repository=lovelace-colorfulclouds-weather-card&category=lovelace)
 
-## 修改自https://github.com/hasscc/tianqi，支持HASS 2025.12+
+## 修改自https://github.com/hasscc/tianqi
+- 支持HASS 2025.12+
