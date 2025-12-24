@@ -5,7 +5,6 @@ from datetime import datetime, timedelta
 from homeassistant.components.weather import (
     DOMAIN as ENTITY_DOMAIN,
     WeatherEntity as BaseEntity,
-    Forecast,
     ATTR_CONDITION_SUNNY,
     ATTR_CONDITION_PARTLYCLOUDY,
     ATTR_CONDITION_CLOUDY,
@@ -153,7 +152,7 @@ class WeatherEntity(BaseEntity):
         await self.async_forecast_hourly()
         self.async_write_ha_state()
 
-    async def async_forecast_daily(self) -> list[Forecast] | None:
+    async def async_forecast_daily(self) -> list[dict] | None:
         """Return the daily forecast in native units.
         Only implement this method if `WeatherEntityFeature.FORECAST_DAILY` is set
         """
@@ -207,7 +206,7 @@ class WeatherEntity(BaseEntity):
             lst.append(row)
         return lst
 
-    async def async_forecast_hourly(self) -> list[Forecast] | None:
+    async def async_forecast_hourly(self) -> list[dict] | None:
         """Return the hourly forecast in native units.
         Only implement this method if `WeatherEntityFeature.FORECAST_HOURLY` is set
         """
