@@ -45,7 +45,7 @@ wget -O - https://hacs.vip/get | DOMAIN=tianqi bash -
 
 
 ## 截图
-<img width="800" alt="tianqi" src="https://github.com/gnowmil/tianqi/assets/4549099/545e5c98-dce3-46b6-95c0-3e42d8a26a9a">
+<img width="800" alt="tianqi" src="https://github.com/hasscc/tianqi/assets/4549099/545e5c98-dce3-46b6-95c0-3e42d8a26a9a">
 
 ## 相关链接
 
