@@ -14,19 +14,11 @@
 <a name="install"></a>
 ## 安装/更新
 
-> 以下几种方法任选其一！
+> 以下两种方法任选其一！
 
 #### 方法1: [HACS (**点击这里安装**)](https://my.home-assistant.io/redirect/hacs_repository/?owner=gnowmil&repository=tianqi&category=integration)
 
-#### 方法2: 通过 Samba / SFTP 手动安装
-> [下载](https://github.com/gnowmil/tianqi/archive/main.zip)解压并复制`custom_components/tianqi`文件夹到HA配置目录下的`custom_components`文件夹
-
-#### 方法3: 通过`SSH`或`Terminal & SSH`加载项执行一键安装命令
-```shell
-wget -O - https://hacs.vip/get | DOMAIN=tianqi bash -
-```
-
-#### 方法4: `shell_command`服务
+#### 方法2: `shell_command`服务
 1. 复制代码到HA配置文件 `configuration.yaml`
     ```yaml
     shell_command:
